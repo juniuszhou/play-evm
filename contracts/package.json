@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -40,5 +37,11 @@
     "ts-node": "^10.8.0",
     "typechain": "^5.2.0",
     "typescript": "^4.7.2"
+  },
+  "scripts": {
+    "develop": "ganache-cli -q -i 5777 -p 7545 -m 'candy maple cake sugar pudding cream honey rich smooth crumble sweet treat'",
+    "compile": "npx hardhat compile --force",
+    "deploy": "npx hardhat run scripts/deploy.ts",
+    "test": "npx hardhat compile; npx hardhat test"
   }
 }
