@@ -42,6 +42,8 @@
     "develop": "ganache-cli -q -i 5777 -p 7545 -m 'candy maple cake sugar pudding cream honey rich smooth crumble sweet treat'",
     "compile": "npx hardhat compile --force",
     "deploy": "npx hardhat run scripts/deploy.ts",
+    "call": "npx hardhat run scripts/callGreeter.ts",
+    "verify": "npx hardhat verify",
     "test": "npx hardhat compile; npx hardhat test"
   }
 }
