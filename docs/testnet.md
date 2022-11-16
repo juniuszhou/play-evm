@@ -1,7 +1,4 @@
-# hardhad project 
-
-## create project
-https://hardhat.org/tutorial/
+# Testnet
 
 ## deploy to ropsten
 
@@ -15,12 +12,11 @@ https://ropsten.etherscan.io/address/0xA8B2B82247E3f2b49EE8858b088405e35755c096#
 
 ## 
 
-
-## tools 
-### gas reporter
-npm install hardhat-gas-reporter --save-dev
-
-
-
 ## test net
+0xABCaD56aa87f3718C8892B48cB443c017Cd632BB
+
 Sepolia / Goerli  will be better choise to test eth later.
+
+## faucet
+https://goerli-faucet.com/
+
