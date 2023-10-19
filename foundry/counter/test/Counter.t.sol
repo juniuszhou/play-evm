@@ -10,6 +10,8 @@ contract CounterTest is Test {
     function setUp() public {
         counter = new Counter();
         counter.setNumber(0);
+
+        emit log("Counter address");
     }
 
     function test_Increment() public {
@@ -20,5 +22,12 @@ contract CounterTest is Test {
     function testFuzz_SetNumber(uint256 x) public {
         counter.setNumber(x);
         assertEq(counter.number(), x);
+    }
+
+    function test_bit() public {
+        counter.increment();
+        assertEq(counter.number(), 1);
+
+        assertEq(counter.fib(6), 134);
     }
 }
