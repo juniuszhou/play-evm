@@ -6,7 +6,8 @@ import {Counter} from "../src/Counter.sol";
 
 contract CounterTest is Test {
     Counter public counter;
-    event NewValue(uint);
+    // event should be redefined in test contract
+    event LogNewValue(uint256 newValue);
 
     function setUp() public {
         counter = new Counter();
@@ -21,7 +22,9 @@ contract CounterTest is Test {
     function test_Decrement() public {
         vm.expectRevert(stdError.arithmeticError);
         counter.decrement();
-        // value not changed
+
+        // trace used in test to show value for debug
+        // value not changed after revert
         emit log_named_uint("after decrement value is", counter.number());
     }
 
@@ -31,9 +34,10 @@ contract CounterTest is Test {
     }
 
     function test_emitted_log() public {
+        // check all three topics and value in event
         vm.expectEmit(true, true, true, true);
-        // vm.expectEmit();
-        emit Counter.LogNewValue(1);
+        // emit expected event
+        emit LogNewValue(1);
         counter.increment();
 
     }
