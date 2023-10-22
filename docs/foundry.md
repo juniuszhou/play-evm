@@ -23,12 +23,18 @@ forge test --match-test .*Increment.* // Increment in test name
 forge test --match-test test // start with test
 
 
+## deploy a new contract
+forge c Counter --private-key $PRIV_KEY --rpc-url $RPC_URL
+
+forge c Functions --private-key $PRIV_KEY --rpc-url $RPC_URL
+
+
 ## cast call example
 ```
-cast call 0x5fbdb2315678afecb367f032d93f642f64180aa3 "number()" --rpc-url 127.0.0.1:8545
+cast call 0x5fbdb2315678afecb367f032d93f642f64180aa3 "number()" --rpc-url $RPC_URL
 ```
 
-cast send --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 0x5fbdb2315678afecb367f032d93f642f64180aa3 "increment()" --rpc-url http://127.0.0.1:8545
+cast send --private-key $PRIV_KEY 0x5fbdb2315678afecb367f032d93f642f64180aa3 "increment()" --rpc-url $RPC_URL
 
 
 ## anvil
