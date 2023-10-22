@@ -30,11 +30,12 @@ forge c Functions --private-key $PRIV_KEY --rpc-url $RPC_URL
 
 
 ## cast call example
+## 0xA8B2B82247E3f2b49EE8858b088405e35755c096 counter deployed in sepolia
 ```
-cast call 0x5fbdb2315678afecb367f032d93f642f64180aa3 "number()" --rpc-url $RPC_URL
+cast call 0xA8B2B82247E3f2b49EE8858b088405e35755c096 "number()" --rpc-url $RPC_URL
 ```
 
-cast send --private-key $PRIV_KEY 0x5fbdb2315678afecb367f032d93f642f64180aa3 "increment()" --rpc-url $RPC_URL
+cast send 0xA8B2B82247E3f2b49EE8858b088405e35755c096 "increment()" --private-key $PRIV_KEY  --rpc-url $RPC_URL
 
 
 ## anvil
