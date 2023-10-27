@@ -33,13 +33,11 @@ contract SafeTest is Test {
     // The test will run lots of times, get the average and median gas usage
     function testFuzz_Withdraw(uint256 amount) public {
         vm.assume(amount > 0.1 ether);
-         vm.assume(amount < 1000 ether);
-       payable(address(safe)).transfer(amount);
+        vm.assume(amount < 1000 ether);
+        payable(address(safe)).transfer(amount);
         uint256 preBalance = address(this).balance;
         safe.withdraw();
         uint256 postBalance = address(this).balance;
         assertEq(preBalance + amount, postBalance);
     }
 }
-
-

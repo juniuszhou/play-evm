@@ -7,6 +7,7 @@ import {Counter} from "../src/Counter.sol";
 contract CounterTest is Test {
     Counter public counter;
     // event should be redefined in test contract
+
     event LogNewValue(uint256 newValue);
 
     function setUp() public {
@@ -39,6 +40,5 @@ contract CounterTest is Test {
         // emit expected event
         emit LogNewValue(1);
         counter.increment();
-
     }
 }

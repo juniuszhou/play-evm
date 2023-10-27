@@ -10,6 +10,7 @@ contract CallUsageTest is Test {
     A public a;
     Proxy public p;
     // event should be redefined in test contract
+
     event LogNewValue(uint256 newValue);
 
     function setUp() public {
@@ -21,27 +22,24 @@ contract CallUsageTest is Test {
 
     function test_call_foo() public {
         caller.testCallFoo(payable(receiver));
-        (bool success, bytes memory data)  = (payable(receiver)).call("");
+        (bool success, bytes memory data) = (payable(receiver)).call("");
         // emit log(success);
         if (success) {
             emit log_named_bytes("success", data);
         }
-
     }
 
     function test_call() public {
         address b = (address)(a);
         (bool success, bytes memory data) = b.call(abi.encodeWithSignature("printCaller()"));
 
-         if (success) {
+        if (success) {
             emit log_named_bytes("success", data);
         }
-
     }
 
-     function test_deledate_call() public {
+    function test_deledate_call() public {
         p.delegateCall(address(a));
-
     }
 }
 
@@ -61,13 +59,10 @@ contract A is Test {
 contract Proxy is Test {
     // delegate call using the same context as before, like sender and amount
     function delegateCall(address a) public {
-        (bool success, bytes memory data) = a.delegatecall(
-           abi.encodeWithSignature("printCaller()")
-        );
+        (bool success, bytes memory data) = a.delegatecall(abi.encodeWithSignature("printCaller()"));
 
-         if (success) {
+        if (success) {
             emit log_named_bytes("success", data);
         }
-
     }
 }

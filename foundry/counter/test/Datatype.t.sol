@@ -26,15 +26,13 @@ contract DatatypeTest is Test {
         b[0] = 0x01;
         bytes memory c = bytes.concat(b, b);
         assertEq(bytes.concat(b, b), c);
-        
     }
 
     function test_array() public {
         // fixed size array
         uint8[4] memory arr = [0, 1, 2, 3];
-        for (uint i = 0; i < arr.length; i++) {
+        for (uint256 i = 0; i < arr.length; i++) {
             assertEq(i, arr[i]);
-
         }
     }
 }
