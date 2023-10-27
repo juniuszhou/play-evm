@@ -10,6 +10,24 @@ contract Functions {
         admin = msg.sender;
     }
 
+/*
+memory and calldata (as well as storage) are keywords that define the data area where a variable is stored. 
+To answer your question directly, memory should be used when declaring variables
+ (both function parameters as well as inside the logic of a function) that you want stored in memory (temporary), 
+ and calldata must be used when declaring an external function's dynamic parameters.
+
+The easiest way to think about the difference is that calldata is a non-modifiable, non-persistent area 
+where function arguments are stored, and behaves mostly like memory.
+*/
+    function memoryPara(string memory a, string calldata b) public pure returns(string calldata) {
+        // memory can be upated
+        a = "hello";
+        // we can use b, but not updated it. since it is allocated by caller
+        string calldata c = b;
+        return c;
+
+    }
+
     // fib function, tail recursive
     function fib(uint256 x) public pure returns (uint256) {
         if (x == 0) {
