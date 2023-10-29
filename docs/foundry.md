@@ -18,9 +18,13 @@ forge init
 ## install module without submodule
 forge install transmissions11/solmate  --no-git 
 
+forge install OpenZeppelin/openzeppelin-contracts --no-git
+
 ## test with filter regex
 forge test --match-test .*Increment.* // Increment in test name
 forge test --match-test test // start with test
+
+forge test --match-path test/Counter.t.sol
 
 
 ## deploy a new contract
