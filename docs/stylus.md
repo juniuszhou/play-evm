@@ -15,3 +15,7 @@ https://stylus-testnet.arbitrum.io/rpc
 ## browser  Arbitrum Sepolia
 https://stylus-testnet-explorer.arbitrum.io/
 
+
+## deploy contract to stylus network.
+cargo stylus deploy --private-key $PRIVATE_KEY
+
